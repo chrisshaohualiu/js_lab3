@@ -158,23 +158,17 @@ const createRange = (start, end) => {
 };
 
 const countElements = (array) => {
-  let keyArray = [];
+  let key = {};
   array.forEach((element) => {
-    indexOfElement = keyArray.findIndex((item) => {
-      return item.key === element;
-    });
-    if (indexOfElement === -1) {
-      keyArray.push({
-        key: element,
-        count: 1,
-      });
+    if (key.hasOwnProperty(element)) {
+      key[element]++;
     } else {
-      keyArray[indexOfElement].count++;
+      key[element] = 1;
     }
   });
-
-  return keyArray;
+  return key;
 };
 
-// let arr1 = ["a", "b", "c", "a", "a", "b", "d", "d", "d", "d"];
-// console.log(countElements(arr1));
+let arr1 = ["a", "b", "c", "a", "a", "b", "d", "d", "d", "d"];
+console.log(arr1);
+console.log(countElements(arr1));
