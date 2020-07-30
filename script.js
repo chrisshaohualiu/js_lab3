@@ -88,7 +88,7 @@ const editSubmission = (array, index, score) => {
 // find method.
 
 const findSubmissionByName = (array, name) => {
-  return array.find((array) => array.name === name);
+  return array.find((item) => item.name === name);
 };
 
 //console.log(findSubmissionByName(submissions, "Joe"));
@@ -119,13 +119,13 @@ const findLowestScore = (array) => {
 
 const findAverageScore = (array) => {
   let sum = 0;
-  for (let i = 0; i < array.length; i++) {
-    sum += array[i].score;
+  for (let item of array) {
+    sum += item.score;
   }
   return sum / array.length;
 };
 
-//console.log(findAverageScore(submissions));
+console.log(findAverageScore(submissions));
 
 // 9. Declare a function named filterPassing
 // ○ Parameter(s): array
